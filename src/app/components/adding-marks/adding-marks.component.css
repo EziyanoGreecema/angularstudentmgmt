@@ -1,0 +1,116 @@
+.form-container {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"], input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+/*//*/
+/*second part cs*/
+some-btn{
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-primary:hover,
+.btn-danger:hover {
+  opacity: 0.8;
+}
+
+.btn-primary:active,
+.btn-danger:active {
+  opacity: 0.6;
+}
+
+
+
+button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+td {
+  font-size: 16px;
+  padding: 10px;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+
+}
+
+.btn {
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 8px 16px;
+  margin-right: 10px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.header {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #f2f2f2;
+  text-align: left;
+  padding: 10px;
+}
+
+td {
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+

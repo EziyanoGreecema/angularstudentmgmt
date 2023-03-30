@@ -1,0 +1,100 @@
+
+
+
+<!--my working code
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+
+  <label formArrayName="orders" *ngFor="let order of ordersFormArray.controls; let i = index">
+    <input type="checkbox" [formControlName]="i">
+    {{selectedSubjects[i].name}}
+  </label>
+  <button (click)="finishedSelctingSubject()">submit</button>
+</form>
+-->
+
+
+
+
+<!-- adding-marks.component.html working 1
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div formArrayName="orders">
+      <div class="card mb-3" *ngFor="let order of ordersFormArray.controls; let i = index">
+        <div class="card-body">
+          <h5 class="card-title">{{ selectedSubjects[i].name }}</h5>
+          <div [formGroupName]="i">
+            <div class="form-check form-switch mb-3">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="subject-{{ i }}"
+                formControlName="subject"
+              />
+              <label class="form-check-label" for="subject-{{ i }}">Select Subject</label>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="marks-{{ i }}">Marks</label>
+              <input
+                type="number"
+                class="form-control"
+                id="marks-{{ i }}"
+                formControlName="marks"
+                min="0"
+                max="100"
+              />
+              <div class="invalid-feedback" *ngIf="ordersFormArray.controls[i]?.get('marks')?.invalid">
+
+                Marks is required and should be between 0 and 100.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>-->
+
+
+
+//workingcode html2
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div formArrayName="orders">
+      <div class="card mb-3" *ngFor="let order of ordersFormArray.controls; let i = index">
+        <div class="card-body">
+<!--          <h5 class="card-title">{{ selectedSubjects[i]?.name }}</h5>-->
+          <h5 class="card-title">{{ selectedSubjects[i].name }}</h5>
+
+          <div [formGroupName]="i">
+            <div class="form-check form-switch mb-3">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="subject-{{ i }}"
+                formControlName="subject"
+              />
+              <label class="form-check-label" for="subject-{{ i }}">Select Subject</label>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="marks-{{ i }}">Marks</label>
+              <input
+                type="number"
+                class="form-control"
+                id="marks-{{ i }}"
+                formControlName="marks"
+                min="0"
+                max="100"
+              />
+              <div class="invalid-feedback" *ngIf="ordersFormArray.controls[i]?.get('marks')?.invalid">
+                Marks is required and should be between 0 and 100.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

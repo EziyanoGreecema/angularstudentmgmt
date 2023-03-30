@@ -1,0 +1,41 @@
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Subject Code</th>
+    <th>Subject Name</th>
+    <th>Full Marks</th>
+    <th>Pass Marks</th>
+    <th>Obtained Marks</th>
+    <th>Student First Name</th>
+    <th>Student Last Name</th>
+    <th>Student Email</th>
+    <th>Level</th>
+    <th>Section</th>
+    <th>Published</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let grade of grades">
+    <td>{{ grade.id }}</td>
+    <td>{{ grade.subject.code }}</td>
+    <td>{{ grade.subject.name }}</td>
+    <td>{{ grade.subject.fullMarks }}</td>
+    <td>{{ grade.subject.passMarks }}</td>
+    <td>{{ grade.obtainedMarks }}</td>
+    <td>{{ grade.student.firstName }}</td>
+    <td>{{ grade.student.lastName }}</td>
+    <td>{{ grade.student.emailId }}</td>
+    <td>{{ grade.student.level }}</td>
+    <td>{{ grade.student.section }}</td>
+    <td>{{ grade.published }}</td>
+    <td>
+      <select [(ngModel)]="grade.published">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+      <button (click)="publishGrade(grade)">Publish</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

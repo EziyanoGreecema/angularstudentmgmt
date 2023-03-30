@@ -1,0 +1,198 @@
+<!--
+<h1>Add Marks</h1>
+<form [formGroup]="subjectsForm" (ngSubmit)="onSubmit()">
+  <div *ngFor="let course of courses; let i = index" [formGroupName]="'course' + i">
+    <h2>{{course.name}}</h2>
+    <input type="hidden" formControlName="subjectId">
+    <label>
+      Marks:
+      <input type="number" formControlName="marks">
+    </label>
+  </div>
+  <button type="submit">Submit</button>
+</form>
+
+-->
+
+
+<div *ngFor="let course of courses">
+  <label>{{course.name}}</label>
+  <input type="number" [(ngModel)]="marks[course.id]">
+  </div>
+<button (click)="submitMarks()">Submit Marks</button>
+
+
+
+<!--<h1>Add Marks</h1>
+<form [formGroup]="subjectsForm" (ngSubmit)="onSubmit()">
+  <div formArrayName="courses" *ngFor="let course of courseForm.controls; let i = index">
+    <div [formGroupName]="'course' + i">
+      <h2>{{ courses[i].name }}</h2>
+      <input type="hidden" formControlName="subjectId">
+      <label>
+        Marks:
+        <input type="number" formControlName="marks">
+      </label>
+    </div>
+  </div>
+  <button type="submit">Submit</button>
+</form>-->
+
+
+<!--working 3
+<form [formGroup]="markForm" (ngSubmit)="onSubmit()">
+  <div *ngFor="let course of courses; let i = index" [formGroupName]="'course' + i">
+    <h3>{{ course.name }}</h3>
+    <label for="marks">Marks:</label>
+    <input type="number" id="marks" formControlName="marks">
+  </div>
+  <button type="submit">Submit</button>
+</form>
+-->
+
+
+
+<!--working2
+<div class="container">
+  <form [formGroup]="subjectForm" (ngSubmit)="onSubmit()">
+ &lt;!&ndash;   <div class="form-group">
+      <label for="studentName">Subject Name:</label>
+      <input type="text" formControlName="studentName" class="form-control" required>
+    </div>&ndash;&gt;
+    <div formArrayName="subjects">
+    &lt;!&ndash;      <div *ngFor="let subject of subjectForm.get('subjects')?.value; let i = index" [formGroupName]="i">
+            <label>
+              {{ subject.subjectName }}
+              <input type="number" formControlName="marks">
+            </label>&ndash;&gt;
+
+
+&lt;!&ndash;        <div *ngFor="let subject of subjectForm.get('subjects')?.controls; let i = index" [formGroupName]="i">&ndash;&gt;
+          <div *ngFor="let subject of subjectForm.get('subjects')?.value; let i = index" [formGroupName]="i">
+        <div class="form-group">
+          <label [for]="'subjectId' + i">Course:</label>
+          <select [id]="'subjectId' + i" formControlName="subjectId" class="form-control" required>
+            <option value="" disabled selected>Select Course</option>
+            <option *ngFor="let subject of selectedSubjects" [value]="subject.id">{{ subject.name }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label [for]="'marks' + i">Marks:</label>
+          <input type="number" [id]="'marks' + i" formControlName="marks" class="form-control" required>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Marks</button>
+  </form>
+</div>
+
+-->
+
+<!--
+    working code for component1
+
+    <form [formGroup]="subjectForm" (ngSubmit)="onSubmit()">
+      <div formArrayName="subjects">
+        <div *ngFor="let subject of subjects.controls; let i = index" [formGroupName]="i">
+
+        &lt;!&ndash;    <div *ngFor="let subject of subjectForm.get('subjects')?.controls; let i = index" [formGroupName]="i">&ndash;&gt;
+    &lt;!&ndash;      <div *ngFor="let subject of (subjectForm.get('subjects') as FormArray)?.controls; let i = index" [formGroupName]="i">&ndash;&gt;
+
+          <label>
+            Subject ID:
+            <input type="text" formControlName="subjectId">
+          </label>
+          <label>
+            Marks:
+            <input type="number" formControlName="marks">
+          </label>
+        </div>
+      </div>
+      <button type="submit">Submit</button>
+      <button type="button" (click)="addSubject()">Add Subject</button>
+    </form>
+    -->
+
+
+<!--
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+  <div>
+    <label>
+      Name:
+      <input formControlName="name" placeholder="Your name">
+    </label>
+    <div *ngIf="myForm.get('name')?.invalid && (myForm.get('name')?.dirty || myForm.get('name')?.touched)">
+      Please provide a name.
+    </div>
+  </div>
+  <div>
+    <label>
+      Email:
+      <input formControlName="email" placeholder="Your email">
+    </label>
+    <div *ngIf="myForm.get('email')?.invalid && (myForm.get('email')?.dirty || myForm.get('email')?.touched)">
+      Please provide a valid email address.
+    </div>
+  </div>
+  <div>
+    <label>
+      Message:
+      <input formControlName="message" placeholder="Your message">
+    </label>
+    <div *ngIf="myForm.get('message')?.invalid && (myForm.get('message')?.dirty || myForm.get('message')?.touched)">
+      Messages must be at least 15 characters long.
+    </div>
+  </div>
+  <button type="submit" [disabled]="myForm.invalid">Send</button>
+</form>
+-->
+
+<!--
+
+// copy inside the employee.component.html file
+<form [formGroup]="bioSection" (ngSubmit)="callingFunction()">
+  <h3>Bio Details
+  </h3>
+
+  <label>
+    First Name:
+    <input type="text" formControlName="firstName">
+  </label> <br>
+  <label>
+    Last Name:
+    <input type="text" formControlName="lastName">
+  </label> <br>
+  <label>
+    Age:
+    <input type="text" formControlName="age">
+  </label>
+  <div formGroupName="stackDetails">
+    <h3>Stack Details</h3>
+
+    <label>
+      Stack:
+      <input type="text" formControlName="stack">
+    </label> <br>
+
+    <label>
+      Experience:
+      <input type="text" formControlName="experience">
+    </label>
+  </div>
+  <div formGroupName="address">
+    <h3>Address</h3>
+
+    <label>
+      Country:
+      <input type="text" formControlName="country">
+    </label> <br>
+
+    <label>
+      City:
+      <input type="text" formControlName="city">
+    </label>
+  </div>
+  <button type="submit">Submit Application</button>
+</form>
+-->
+

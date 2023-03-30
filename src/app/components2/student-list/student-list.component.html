@@ -1,0 +1,28 @@
+<div class = "row">
+  <h2> {{text}}</h2>
+</div>
+
+<table class = "table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th> First Name</th>
+    <th> Last Name </th>
+    <th> Email Id</th>
+    <th> Actions </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor = "let student of students" >
+    <td> {{ student.firstName }} </td>
+    <td> {{ student.lastName }} </td>
+    <td> {{ student.emailId }} </td>
+    <td>
+<!--      <button (click) = "updateStudent(student.id)" class = "btn btn-primary"> Update</button>-->
+      <button (click) = "addMarks(student.id)" class = "btn btn-primary"> addMarksTostudent</button>
+      <button (click) = "viewMarksheet(student.emailId)" class = "btn btn-primary"> viewResult</button>
+      <button (click) = "deleteStudent(student.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+<!--      <button (click) = "StudentDetails(student.id)" class = "btn btn-primary" style="margin-left: 10px"> View</button>-->
+    </td>
+  </tr>
+  </tbody>
+</table>

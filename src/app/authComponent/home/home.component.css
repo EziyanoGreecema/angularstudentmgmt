@@ -1,0 +1,13 @@
+.create{
+  background-color:green;
+  color: aliceblue;
+  padding: 10px;
+  font-size: large;
+}
+
+.register-buttons{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 50px;
+}

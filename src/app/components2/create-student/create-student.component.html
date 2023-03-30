@@ -1,0 +1,94 @@
+<div class="create-fields">
+  <div class="title">
+
+    <h1>Welcome To Management System</h1>
+
+    <h1>School Management System</h1>
+  </div>
+<!--  <div class="register-buttons">
+    <div>
+      ​
+      <button class="create" ng-click="showDiv = true">Create Student</button>
+    </div>
+    <div>
+      ​
+      <button class="create" >Create Subject</button>
+    </div>
+  </div>-->
+
+</div>
+
+
+
+<h2 style="text-align: center">Student Registration Form</h2>
+
+<div class="form-container">
+<form class="form" ng-show="showDiv">
+  <label>Full Name</label>
+  <input type="text" id="name" [(ngModel)]="student.firstName"  name="studentName">
+
+  <label>Last Name</label>
+  <input type="text" id="lastname" [(ngModel)]="student.lastName"  name="studentName">
+
+  <label>Email</label>
+  <input type="email" id="email" [(ngModel)]="student.emailId"  name="studentName">
+
+  <label>Level</label>
+  <input type="email" id="level" [(ngModel)]="student.level"  name="studentName">
+
+  <label>Section</label>
+  <input type="email" id="section" [(ngModel)]="student.section"  name="studentName">
+
+
+  <label>Grade</label>
+  <input type="text"/>
+  <label>Student Serial No</label>
+  <input type="text"/>
+  <button class="common" (click)="onSubmit()">Register Student</button>
+
+</form>
+</div>
+
+
+<!--
+<h2 style="text-align: center">Update Student Marks</h2>
+<div class="form-container">
+<form class="form" ng-show="showDiv">
+  <label>Student Name</label>
+  <select>
+    <option>Registered Student 1</option>
+    <option> Registered Student 2</option>
+  </select>
+  <label>Subject Name</label>
+  <select>
+    <option>subject 1</option>
+    <option>subject 2</option>
+  </select>
+  <label>Input marks</label>
+  <input type="text" [(ngModel)]="obtainedMarks"  name="obtainedMarks"/>
+
+  <button class="common" (click)=onSubmit()>Update student marks</button>
+</form>
+</div>
+
+&ndash;&gt;
+
+
+<h2> View Overall Performance </h2>
+<div class="select-subject">
+  ​
+  <button class="common">Subject 1</button>
+  <button class="common">Subject 2</button>
+  <button class="common">Subject 3</button>
+</div>
+​
+​
+<div class="student-performance-container">
+  ​
+  <div class="subject-performance" id="green">
+    73% Passed
+    ​
+  </div>
+  <div class="subject-performance" id="red">
+    27% Failed
+  </div>-->

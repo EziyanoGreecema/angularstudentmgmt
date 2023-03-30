@@ -1,0 +1,172 @@
+
+<p>list-subject works!</p>
+<div class = "row">
+  <h2> Subject List</h2>
+</div>
+
+<table class = "table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th> Subject code</th>
+    <th> Subject Name </th>
+    <th> Subject Id</th>
+    <th> Actions </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor = "let subject of subjects" >
+    <td> {{ subject.code }} </td>
+    <td> {{ subject.name }} </td>
+    <td> {{ subject.id }} </td>
+    <td>
+
+<!--      <button (click)="updateStudent(subject.id)" class='btn btn-info'-->
+<!--              data-toggle="modal" data-target="#myModal">Update</button>-->
+      <button (click)="openUpdateSubjectModal(subject)" class='btn btn-info'>Update</button>
+
+      <button (click) = "deleteSubject(subject.id)" class = "btn btn-danger" style="margin-left: 10px"> <i class="fa fa-futboll-0">Delete</i></button>
+      <button (click) = "SubjectDetails(subject.id)" class = "btn btn-primary" style="margin-left: 10px"><i class="fa fa-futboll-0">View</i> </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<!--
+
+<div class="modal" id="updateSubjectModal" tabindex="-1" role="dialog" aria-labelledby="updateSubjectModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form [formGroup]="subjectUpdateForm" (ngSubmit)="updateSubjects()">
+        <div class="modal-header">
+          <h5 class="modal-title" id="updateSubjectModalLabel">Update Subject</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" formControlName="name">
+          </div>
+          <div class="form-group">
+            <label for="code">Code</label>
+            <input type="text" class="form-control" id="code" formControlName="code">
+          </div>
+          <div class="form-group">
+            <label for="fullMarks">Full Marks</label>
+            <input type="text" class="form-control" id="fullMarks" formControlName="fullMarks">
+          </div>
+          <div class="form-group">
+            <label for="passMarks">Pass Marks</label>
+            <input type="text" class="form-control" id="passMarks" formControlName="passMarks">
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Update</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="updateSubjectErrorModal" tabindex="-1" role="dialog" aria-labelledby="updateSubjectErrorModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateSubjectErrorModalLabel">Update Subject Error</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>{{ errorMessage }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+-->
+
+
+<!--//______ use this -->
+<!-- Update Subject Modal -->
+
+
+<div class="modal fade" id="updateSubjectModal" tabindex="-1" role="dialog" aria-labelledby="updateSubjectModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form [formGroup]="subjectUpdateForm" (ngSubmit)="updateSubjects()" class="update-form">
+        <div class="modal-header">
+          <h5 class="modal-title" id="updateSubjectModalLabel">Update Subject</h5>
+          <button type="button" class="close" (click)="hideModal('updateSubjectModal')" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- form fields here -->
+
+
+
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" formControlName="name">
+              </div>
+              <div class="form-group">
+                <label for="code">Code</label>
+                <input type="text" class="form-control" id="code" formControlName="code">
+              </div>
+              <div class="form-group">
+                <label for="fullMarks">Full Marks</label>
+                <input type="text" class="form-control" id="fullMarks" formControlName="fullMarks">
+              </div>
+              <div class="form-group">
+                <label for="passMarks">Pass Marks</label>
+                <input type="text" class="form-control" id="passMarks" formControlName="passMarks">
+              </div>
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Update</button>
+          <button type="button" class="btn btn-secondary" (click)="hideModal('updateSubjectModal')">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Update Subject Error Modal -->
+<div class="modal fade" id="updateSubjectErrorModal" tabindex="-1" role="dialog" aria-labelledby="updateSubjectErrorModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateSubjectErrorModalLabel">Update Subject Error</h5>
+        <button type="button" class="close" (click)="hideModal('updateSubjectErrorModal')" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>{{ errorMessage }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="hideModal('updateSubjectErrorModal')">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
